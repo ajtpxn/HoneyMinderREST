@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,12 +27,9 @@ public class GoalController {
 		return goalRepo.findAll();
 	}
 	
-	@PostMapping("/goals/{goalName}")
-	public Goal createGoal(@PathVariable("goalName") String goalName) {
-		Goal newGoal = new Goal();
-		newGoal.setName(goalName);
-		newGoal.setUserId(1);
-		return goalRepo.save(newGoal);
+	@PostMapping("/goals")
+	public Goal createGoal(@RequestBody Goal goal) {
+		return goalRepo.save(goal);
 	}
 
 }
