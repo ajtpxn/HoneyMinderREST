@@ -1,6 +1,6 @@
 
 # Honey Minder &nbsp;  ![honeycomb](honey-small.png) #
-==================
+
 
 Goal Tracking with Rewards
 
