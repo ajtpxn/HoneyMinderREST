@@ -18,18 +18,19 @@ class UserRepositoryTest {
 	@Autowired
 	UserRepository userRepo;
 
+	
+	@Test
+	@DisplayName("Test getOne. Should return brandon.")
+	void test2() {
+		User user = userRepo.findById(1).get();
+		assertEquals("brandon", user.getUsername());
+	}
+	
 	@Test
 	@DisplayName("Test findByUsername. Should return 1.")
 	void test1() {
 		User user = userRepo.findByUsername("brandon");
 		assertEquals(1, user.getId());
-	}
-	
-	@Test
-	@DisplayName("Test getOne. Should return brandon.")
-	void test2() {
-		User user = userRepo.getOne(1);
-		assertEquals("brandon", user.getUsername());
 	}
 
 }
