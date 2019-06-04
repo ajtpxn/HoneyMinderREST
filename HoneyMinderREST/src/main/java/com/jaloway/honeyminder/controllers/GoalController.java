@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jaloway.honeyminder.data.GoalRepo;
 import com.jaloway.honeyminder.entities.Goal;
+import com.jaloway.honeyminder.services.GoalService;
 
 @RestController
 @RequestMapping(path = "api")
@@ -19,17 +20,16 @@ import com.jaloway.honeyminder.entities.Goal;
 public class GoalController {
 	
 	@Autowired
-	GoalRepo goalRepo;
+	GoalService goalService;
 	
 	@GetMapping("/goals")
 	public List<Goal> indexGoals() {
-		System.out.println("********** test **********");
-		return goalRepo.findAll();
+		return goalService.indexGoals();
 	}
 	
 	@PostMapping("/goals")
 	public Goal createGoal(@RequestBody Goal goal) {
-		return goalRepo.save(goal);
+		return goalService.save(goal);
 	}
 
 }
