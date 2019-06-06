@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jaloway.honeyminder.data.UserRepository;
 import com.jaloway.honeyminder.entities.User;
+import com.jaloway.honeyminder.services.UserService;
 
 @RestController
 @RequestMapping(path = "api")
@@ -16,13 +16,11 @@ import com.jaloway.honeyminder.entities.User;
 public class UserController {
 
 	@Autowired
-	UserRepository userRepo;
+	UserService userService;
 
 	@GetMapping("/user/{username}")
 	public User findUser(@PathVariable("username") String username) {
-		User user = userRepo.findByUsername(username);
-		user.setPassword(null);
-		return user;
+		return userService.findByUsername(username);
 	}
 
 }
