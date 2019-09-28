@@ -35,4 +35,5 @@ Honey Minder is a way to track goals with rewards. The idea is similar to Beemin
 
 ### Notes ###
 
-* I am hoping that I will be able to increase my happiness by being more productive on things I really care about. I hope I can help others to do the same.
+* I am hoping that this motivation will be an excellent way to keep up with goals.
+* This will be a more positive source of motivation.
